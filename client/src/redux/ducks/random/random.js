@@ -56,11 +56,10 @@ function addToDecline(user) {
 function getGoing() {
   return dispatch => {
     axios.get("/api/going").then(resp => {
-      const data = resp.data
-      console.log(data)
+      console.log(resp.data)
       dispatch({
         type: GET_GOING,
-        payload: data
+        payload: resp.data
       })
     })
   }

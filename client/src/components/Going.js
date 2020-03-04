@@ -7,24 +7,24 @@ export default props => {
 
   return (
     <div className="">
-      {/* {.map(accepted => ( */}
-      <div>
-        <div className="">
-          <img className="" alt="largePic" src={accepted.picture} />
+      {accepted.map(user => (
+        <div key={"user" + user.id}>
+          <div className="">
+            <img className="" alt="largePic" src={user.picture} />
+          </div>
+          <div className="">
+            <p>
+              <span className="">Name:</span> {user.name}
+            </p>
+            <p>
+              <span className="">Phone:</span> {user.phone}
+            </p>
+            <p>
+              <span className="">Email:</span> {user.email}
+            </p>
+          </div>
         </div>
-        <div className="">
-          <p>
-            <span className="">Name:</span> {accepted.name}
-          </p>
-          <p>
-            <span className="">Phone:</span> {accepted.phone}
-          </p>
-          <p>
-            <span className="">Email:</span> {accepted.email}
-          </p>
-        </div>
-      </div>
-      {/* ))} */}
+      ))}
     </div>
   )
 }
