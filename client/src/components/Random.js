@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 import "../styles/random.css"
 
 export default props => {
-  const { random, going, decline, allGoing, accepted } = useRandom()
+  const { random, going, decline, allGoing } = useRandom()
   return (
     <div className="randomWrapper">
       <div className="goingNotGoing">
-        <p className="randomGoing">Going: </p>
+        <p className="randomGoing">Going:</p>
         <p className="randomNotGoing">Not Going:</p>
       </div>
       <div className="randomBox">
@@ -28,16 +28,19 @@ export default props => {
         </div>
       </div>
       <div className="randomButtons">
-        <button className="randomNo" onClick={e => decline(random)}>
-          N
-        </button>
         <button className="randomYes" onClick={e => going(random)}>
           Y
         </button>
+        <button className="randomNo" onClick={e => decline(random)}>
+          N
+        </button>
       </div>
-      <div>
+      <div className="randomLinks">
         <Link to={"/going"}>
-          <button onClick={e => allGoing()}>Who's Going?</button>
+          <button className="randomLinksGoing ">Who's Going?</button>
+        </Link>
+        <Link to={"/notGoing"}>
+          <button className="randomnotGoing">Who's Not?</button>
         </Link>
       </div>
     </div>

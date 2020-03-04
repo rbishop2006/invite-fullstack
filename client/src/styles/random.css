@@ -1,3 +1,5 @@
+/* styling for random page */
+
 .randomWrapper {
   width: 200px;
   margin: 50px auto;
@@ -65,4 +67,94 @@
   border-bottom: 1px solid darkgray;
   background-color: rgb(235, 235, 235);
   padding: 5px;
+}
+.randomLinks {
+  display: flex;
+  justify-content: space-around;
+  border-right: 1px solid darkgray;
+  border-left: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+  background-color: rgb(235, 235, 235);
+  padding: 5px;
+}
+.randomLinksGoing {
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: rgb(235, 235, 235);
+  color: green;
+  outline: none;
+}
+.randomnotGoing {
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: rgb(235, 235, 235);
+  color: red;
+  outline: none;
+}
+/* styling for going */
+.goingWrapper {
+  width: 1000px;
+  margin: 50px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+}
+.goingImg {
+  height: 65%;
+  width: 45%;
+  border-radius: 50%;
+  border: 2px solid darkgray;
+}
+.goingDetails {
+  background-color: rgb(235, 235, 235);
+  font-size: 10px;
+  line-height: 1.2em;
+  padding-left: 2%;
+}
+.goingBox {
+  border: 1px solid darkgray;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  justify-content: center;
+}
+.goingCenter {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+/* styling for notGoing */
+.notGoingWrapper {
+  width: 1000px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+}
+.notGoingImg {
+  height: 65%;
+  width: 45%;
+  border-radius: 50%;
+  border: 2px solid darkgray;
+}
+.notGoingDetails {
+  background-color: rgb(235, 235, 235);
+  font-size: 10px;
+  line-height: 1.2em;
+  padding-left: 2%;
+}
+.notGoingBox {
+  border: 1px solid darkgray;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  justify-content: center;
+}
+.notGoingCenter {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }

@@ -1,26 +1,27 @@
 import React from "react"
 import { useRandom } from "../hooks"
 import { Link } from "react-router-dom"
+import "../styles/random.css"
 
 export default props => {
   const { accepted } = useRandom()
 
   return (
-    <div className="">
+    <div className="goingWrapper">
       {accepted.map(user => (
-        <div key={"user" + user.id}>
-          <div className="">
-            <img className="" alt="largePic" src={user.picture} />
+        <div className="goingBox" key={"user" + user.id}>
+          <div className="goingCenter">
+            <img className="goingImg" alt="largePic" src={user.picture} />
           </div>
-          <div className="">
+          <div className="goingDetails">
             <p>
-              <span className="">Name:</span> {user.name}
+              <span className="bold">Name:</span> {user.name}
             </p>
             <p>
-              <span className="">Phone:</span> {user.phone}
+              <span className="bold">Phone:</span> {user.phone}
             </p>
             <p>
-              <span className="">Email:</span> {user.email}
+              <span className="bold">Email:</span> {user.email}
             </p>
           </div>
         </div>

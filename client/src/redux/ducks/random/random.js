@@ -4,6 +4,7 @@ import axios from "axios"
 
 const GET_RANDOM = "random/GET_RANDOM"
 const GET_GOING = "random/GET_GOING"
+const GET_DECLINE = "random/GET_DECLINE"
 
 const initialState = {
   user: {},
@@ -18,6 +19,9 @@ export default (state = initialState, action) => {
 
     case GET_GOING:
       return { ...state, going: action.payload }
+
+    case GET_DECLINE:
+      return { ...state, notGoing: action.payload }
 
     default:
       return state
@@ -45,6 +49,18 @@ function addToGoing(user) {
   }
 }
 
+function getGoing() {
+  return dispatch => {
+    axios.get("/api/going").then(resp => {
+      console.log(resp.data)
+      dispatch({
+        type: GET_GOING,
+        payload: resp.data
+      })
+    })
+  }
+}
+
 function addToDecline(user) {
   return dispatch => {
     axios.post("/api/notGoing", { user }).then(resp => {
@@ -53,12 +69,12 @@ function addToDecline(user) {
   }
 }
 
-function getGoing() {
+function getDecline() {
   return dispatch => {
-    axios.get("/api/going").then(resp => {
+    axios.get("/api/notGoing").then(resp => {
       console.log(resp.data)
       dispatch({
-        type: GET_GOING,
+        type: GET_DECLINE,
         payload: resp.data
       })
     })
@@ -72,9 +88,12 @@ export function useRandom() {
   const decline = user => dispatch(addToDecline(user))
   const random = useSelector(appState => appState.randomState.user)
   const accepted = useSelector(appState => appState.randomState.going)
+  const declinedInv = useSelector(appState => appState.randomState.notGoing)
   useEffect(() => {
     dispatch(getRandom())
+    dispatch(getGoing())
+    dispatch(getDecline())
   }, [dispatch])
 
-  return { random, going, decline, allGoing, accepted }
+  return { random, going, decline, allGoing, accepted, declinedInv }
 }
